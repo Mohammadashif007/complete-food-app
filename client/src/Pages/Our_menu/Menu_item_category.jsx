@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Cover from "../../components/Cover/Cover";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import MenuItem from "../Shared/MenuItem/MenuItem";
 
-const Menu_item_category = ({ menu, coverImage, coverTitle, sectionTitle }) => {
+const Menu_item_category = ({ menu, coverImage, title, sectionTitle }) => {
     return (
         <div>
             {sectionTitle ? (
@@ -13,7 +14,7 @@ const Menu_item_category = ({ menu, coverImage, coverTitle, sectionTitle }) => {
             ) : (
                 <Cover
                     coverImg={coverImage}
-                    coverTitle={coverTitle}
+                    coverTitle={title}
                     coverDescription={
                         "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                     }
@@ -26,9 +27,11 @@ const Menu_item_category = ({ menu, coverImage, coverTitle, sectionTitle }) => {
                 ))}
             </div>
             <div className="text-center my-10">
-                <button className="px-6 py-1 border-b-4 border-black rounded-xl">
-                    ORDER YOUR FAVORITE FOOD
-                </button>
+                <Link to={`/order/${title}`}>
+                    <button className="px-6 py-1 border-b-4 border-black rounded-xl">
+                        ORDER YOUR FAVORITE FOOD
+                    </button>
+                </Link>
             </div>
         </div>
     );
